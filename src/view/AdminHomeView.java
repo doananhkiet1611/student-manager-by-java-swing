@@ -15,8 +15,8 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
-public class HomeView extends javax.swing.JFrame {
-    public HomeView(ActionListener actionListener) {
+public class AdminHomeView extends javax.swing.JFrame {
+    public AdminHomeView(ActionListener actionListener) {
         initComponents();
         setLocationRelativeTo(null);
         setVisible(true);
@@ -32,6 +32,16 @@ public class HomeView extends javax.swing.JFrame {
         cbSortByOfSubject.addItem("Name: Ascending");
         cbSortByOfSubject.addItem("Name: Descending");
         cbSortByOfSubject.setSelectedIndex(0);
+        
+        cbSortByOfClassroom.addItem("");
+        cbSortByOfClassroom.addItem("Name: Ascending");
+        cbSortByOfClassroom.addItem("Name: Descending");
+        cbSortByOfClassroom.setSelectedIndex(0);
+        
+        cbSortByOfProvince.addItem("");
+        cbSortByOfProvince.addItem("Name: Ascending");
+        cbSortByOfProvince.addItem("Name: Descending");
+        cbSortByOfProvince.setSelectedIndex(0);
         
         addActionListenerToButtonsOfSubject(actionListener);
     }
@@ -76,10 +86,6 @@ public class HomeView extends javax.swing.JFrame {
         return cbSortByOfSubject;
     }
 
-    public JButton getBtnClassroomFilter() {
-        return btnClassroomFilter;
-    }
-
     public JButton getBtnDeleteClassroom() {
         return btnDeleteClassroom;
     }
@@ -99,7 +105,43 @@ public class HomeView extends javax.swing.JFrame {
     public JTable getClassroomTable() {
         return classroomTable;
     }
+
+    public JTextField getiClassroomFilter() {
+        return iClassroomFilter;
+    }
   
+    public JButton getBtnClassroomFilter() {
+        return btnClassroomFilter;
+    }
+
+    public JButton getBtnDeleteProvince() {
+        return btnDeleteProvince;
+    }
+
+    public JButton getBtnInsertProvince() {
+        return btnInsertProvince;
+    }
+
+    public JButton getBtnProvinceFilter() {
+        return btnProvinceFilter;
+    }
+
+    public JButton getBtnUpdateProvince() {
+        return btnUpdateProvince;
+    }
+
+    public JComboBox<String> getCbSortByOfProvince() {
+        return cbSortByOfProvince;
+    }
+
+    public JTextField getiProvinceFilter() {
+        return iProvinceFilter;
+    }
+
+    public JTable getProvinceTable() {
+        return provinceTable;
+    }
+
     public void addActionListenerToButtonsOfSubject(ActionListener actionListener){
         btnInsertSubject.addActionListener(actionListener);
         btnDeleteSubject.addActionListener(actionListener);
@@ -110,6 +152,14 @@ public class HomeView extends javax.swing.JFrame {
         btnInsertClassroom.addActionListener(actionListener);
         btnDeleteClassroom.addActionListener(actionListener);
         btnUpdateClassroom.addActionListener(actionListener);
+        btnClassroomFilter.addActionListener(actionListener);
+        cbSortByOfClassroom.addActionListener(actionListener);
+        
+        btnInsertProvince.addActionListener(actionListener);
+        btnDeleteProvince.addActionListener(actionListener);
+        btnUpdateProvince.addActionListener(actionListener);
+        btnProvinceFilter.addActionListener(actionListener);
+        cbSortByOfProvince.addActionListener(actionListener);
     }
     
     public void addItemListenerToComboBoxOfSubject(ItemListener itemListener) {
@@ -152,7 +202,7 @@ public class HomeView extends javax.swing.JFrame {
         jScrollPane3 = new javax.swing.JScrollPane();
         classroomTable = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        iSubjectFilter1 = new javax.swing.JTextField();
+        iClassroomFilter = new javax.swing.JTextField();
         btnClassroomFilter = new javax.swing.JButton();
         cbSortByOfClassroom = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
@@ -160,6 +210,16 @@ public class HomeView extends javax.swing.JFrame {
         btnUpdateClassroom = new javax.swing.JButton();
         btnInsertClassroom = new javax.swing.JButton();
         provinceTab = new javax.swing.JPanel();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        provinceTable = new javax.swing.JTable();
+        jLabel7 = new javax.swing.JLabel();
+        iProvinceFilter = new javax.swing.JTextField();
+        btnProvinceFilter = new javax.swing.JButton();
+        cbSortByOfProvince = new javax.swing.JComboBox<>();
+        jLabel8 = new javax.swing.JLabel();
+        btnDeleteProvince = new javax.swing.JButton();
+        btnUpdateProvince = new javax.swing.JButton();
+        btnInsertProvince = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -443,10 +503,10 @@ public class HomeView extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel5.setText("Class name");
 
-        iSubjectFilter1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        iSubjectFilter1.addActionListener(new java.awt.event.ActionListener() {
+        iClassroomFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        iClassroomFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                iSubjectFilter1ActionPerformed(evt);
+                iClassroomFilterActionPerformed(evt);
             }
         });
 
@@ -492,7 +552,7 @@ public class HomeView extends javax.swing.JFrame {
                     .addGroup(classroomTabLayout.createSequentialGroup()
                         .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(iSubjectFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(iClassroomFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnClassroomFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 416, Short.MAX_VALUE)
@@ -523,7 +583,7 @@ public class HomeView extends javax.swing.JFrame {
                         .addComponent(cbSortByOfClassroom)
                         .addComponent(jLabel6))
                     .addGroup(classroomTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(iSubjectFilter1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(iClassroomFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(btnClassroomFilter)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -537,15 +597,123 @@ public class HomeView extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Classroom", classroomTab);
 
+        provinceTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        provinceTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane4.setViewportView(provinceTable);
+        if (provinceTable.getColumnModel().getColumnCount() > 0) {
+            provinceTable.getColumnModel().getColumn(0).setMinWidth(20);
+            provinceTable.getColumnModel().getColumn(0).setPreferredWidth(80);
+            provinceTable.getColumnModel().getColumn(1).setPreferredWidth(400);
+        }
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel7.setText("Class name");
+
+        iProvinceFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        iProvinceFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iProvinceFilterActionPerformed(evt);
+            }
+        });
+
+        btnProvinceFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnProvinceFilter.setText("Filter");
+        btnProvinceFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProvinceFilterActionPerformed(evt);
+            }
+        });
+
+        cbSortByOfProvince.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel8.setText("Sort By");
+
+        btnDeleteProvince.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDeleteProvince.setText("DELETE");
+        btnDeleteProvince.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteProvinceActionPerformed(evt);
+            }
+        });
+
+        btnUpdateProvince.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnUpdateProvince.setText("UPDATE");
+        btnUpdateProvince.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateProvinceActionPerformed(evt);
+            }
+        });
+
+        btnInsertProvince.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnInsertProvince.setText("INSERT");
+
         javax.swing.GroupLayout provinceTabLayout = new javax.swing.GroupLayout(provinceTab);
         provinceTab.setLayout(provinceTabLayout);
         provinceTabLayout.setHorizontalGroup(
             provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1038, Short.MAX_VALUE)
+            .addGroup(provinceTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(provinceTabLayout.createSequentialGroup()
+                        .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(iProvinceFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnProvinceFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 416, Short.MAX_VALUE)
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbSortByOfProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(provinceTabLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnInsertProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnDeleteProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnUpdateProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(provinceTabLayout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         provinceTabLayout.setVerticalGroup(
             provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 574, Short.MAX_VALUE)
+            .addGroup(provinceTabLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbSortByOfProvince)
+                        .addComponent(jLabel8))
+                    .addGroup(provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(iProvinceFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnProvinceFilter)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(provinceTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsertProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteProvince, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
 
         jTabbedPane.addTab("Province", provinceTab);
@@ -596,9 +764,9 @@ public class HomeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateSubjectActionPerformed
 
-    private void iSubjectFilter1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iSubjectFilter1ActionPerformed
+    private void iClassroomFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iClassroomFilterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_iSubjectFilter1ActionPerformed
+    }//GEN-LAST:event_iClassroomFilterActionPerformed
 
     private void btnClassroomFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClassroomFilterActionPerformed
         // TODO add your handling code here:
@@ -612,23 +780,45 @@ public class HomeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateClassroomActionPerformed
 
+    private void iProvinceFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iProvinceFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iProvinceFilterActionPerformed
+
+    private void btnProvinceFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProvinceFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnProvinceFilterActionPerformed
+
+    private void btnDeleteProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteProvinceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteProvinceActionPerformed
+
+    private void btnUpdateProvinceActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateProvinceActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateProvinceActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClassroomFilter;
     private javax.swing.JButton btnDeleteClassroom;
+    private javax.swing.JButton btnDeleteProvince;
     private javax.swing.JButton btnDeleteSubject;
     private javax.swing.JButton btnInsertClassroom;
+    private javax.swing.JButton btnInsertProvince;
     private javax.swing.JButton btnInsertStudent;
     private javax.swing.JButton btnInsertSubject;
+    private javax.swing.JButton btnProvinceFilter;
     private javax.swing.JButton btnSubjectFilter;
     private javax.swing.JButton btnUpdateClassroom;
+    private javax.swing.JButton btnUpdateProvince;
     private javax.swing.JButton btnUpdateSubject;
     private javax.swing.JComboBox<String> cbSortByOfClassroom;
+    private javax.swing.JComboBox<String> cbSortByOfProvince;
     private javax.swing.JComboBox<String> cbSortByOfSubject;
     private javax.swing.JPanel classroomTab;
     private javax.swing.JTable classroomTable;
+    private javax.swing.JTextField iClassroomFilter;
+    private javax.swing.JTextField iProvinceFilter;
     private javax.swing.JTextField iSubjectFilter;
-    private javax.swing.JTextField iSubjectFilter1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -639,15 +829,19 @@ public class HomeView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JPanel provinceTab;
+    private javax.swing.JTable provinceTable;
     private javax.swing.JPanel studentTab;
     private javax.swing.JTable studentTable;
     private javax.swing.JPanel subjectTab;

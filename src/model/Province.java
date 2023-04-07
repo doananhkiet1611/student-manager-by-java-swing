@@ -15,6 +15,11 @@ public class Province implements Serializable {
         this.id = sID++;
         this.name = name;
     }
+    
+    public Province(int id, String name) {
+        this.id = id;
+        this.name = name;
+    }
 
     public int getId() {
         return id;
@@ -27,4 +32,31 @@ public class Province implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static int getsID() {
+        return sID;
+    }
+
+    public static void setsID(int sID) {
+        if (sID < 1) {
+            return;
+        }
+        Province.sID = sID;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Province other = (Province) obj;
+        return this.id == other.id;
+    }
+    
 }

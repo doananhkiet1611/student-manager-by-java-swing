@@ -1,10 +1,10 @@
 package test;
 
-import controller.Controller;
+import controller.AdminController;
 
 public class Test {
     public static void main(String[] args) {
-        Controller controller = new Controller();
+        AdminController controller = new AdminController();
         controller.initHomeView();
     }
 }
