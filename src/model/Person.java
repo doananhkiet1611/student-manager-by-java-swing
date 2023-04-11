@@ -2,6 +2,7 @@ package model;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
 public abstract class Person implements Serializable {
 
@@ -76,4 +77,25 @@ public abstract class Person implements Serializable {
     public void setPlaceOfOrigin(Province placeOfOrigin) {
         this.placeOfOrigin = placeOfOrigin;
     }
+    
+    public String getName() {
+        return fullName.substring(fullName.lastIndexOf(" ") + 1);
+    }
+    
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Person other = (Person) obj;
+        return this.getName().equals(other.getName());
+    }
+    
+    
 }

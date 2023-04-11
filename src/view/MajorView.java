@@ -12,12 +12,12 @@ import javax.swing.JTextField;
  *
  * @author doananhkiet
  */
-public class ClassroomView extends javax.swing.JDialog {
+public class MajorView extends javax.swing.JDialog {
 
     /**
      * Creates new form AddSubjectForm
      */
-    public ClassroomView(java.awt.Frame parent, boolean modal, ActionListener actionListener) {
+    public MajorView(java.awt.Frame parent, boolean modal, ActionListener actionListener) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
@@ -25,8 +25,8 @@ public class ClassroomView extends javax.swing.JDialog {
         addActionListenerToButtons(actionListener);
     }
 
-    public JButton getBtnCancel() {
-        return btnCancel;
+    public JButton getBtnCanel() {
+        return btnCanel;
     }
 
     public JButton getBtnAccept() {
@@ -43,7 +43,7 @@ public class ClassroomView extends javax.swing.JDialog {
     
     public void addActionListenerToButtons(ActionListener actionListener) {
         btnAccept.addActionListener(actionListener);
-        btnCancel.addActionListener(actionListener);
+        btnCanel.addActionListener(actionListener);
     }
     
     public void reset() {
@@ -64,14 +64,14 @@ public class ClassroomView extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         iID = new javax.swing.JTextField();
         iName = new javax.swing.JTextField();
-        btnCancel = new javax.swing.JButton();
+        btnCanel = new javax.swing.JButton();
         btnAccept = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Classroom");
+        jLabel1.setText("Major");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("ID");
@@ -84,8 +84,8 @@ public class ClassroomView extends javax.swing.JDialog {
 
         iName.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
-        btnCancel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnCancel.setText("CANCEL");
+        btnCanel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnCanel.setText("CANCEL");
 
         btnAccept.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnAccept.setText("INSERT");
@@ -105,7 +105,7 @@ public class ClassroomView extends javax.swing.JDialog {
                     .addComponent(iName, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(22, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(btnCancel)
+                .addComponent(btnCanel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnAccept))
         );
@@ -122,7 +122,7 @@ public class ClassroomView extends javax.swing.JDialog {
                     .addComponent(iName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnCancel)
+                    .addComponent(btnCanel)
                     .addComponent(btnAccept))
                 .addGap(0, 0, 0))
         );
@@ -153,7 +153,7 @@ public class ClassroomView extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAccept;
-    private javax.swing.JButton btnCancel;
+    private javax.swing.JButton btnCanel;
     private javax.swing.JTextField iID;
     private javax.swing.JTextField iName;
     private javax.swing.JLabel jLabel1;

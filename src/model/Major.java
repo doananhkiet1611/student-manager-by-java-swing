@@ -13,7 +13,7 @@ import java.io.Serializable;
 public class Major implements Serializable {
     private int id;
     private String name;
-    private static int sID = 0;
+    private static int sID = 1;
     
     public Major() {
         this.id = sID++;
@@ -21,6 +21,11 @@ public class Major implements Serializable {
 
     public Major(String name) {
         this.id = sID++;
+        this.name = name;
+    }
+    
+    public Major(int id, String name) {
+        this.id = id;
         this.name = name;
     }
 
@@ -35,4 +40,28 @@ public class Major implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+
+    public static int getsID() {
+        return sID;
+    }
+
+    public static void setsID(int sID) {
+        Major.sID = sID;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Major other = (Major) obj;
+        return this.id == other.id;
+    }
+    
 }

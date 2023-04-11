@@ -6,9 +6,17 @@ import model.Province;
 
 public class Provinces extends ArrayList<Province> {
 
-    public int indexOfByID(int id) {
+    public int indexOfBy(int id) {
         Province province = new Province(id, "");
         return this.indexOf(province);
     }
     
+    public Province getBy(int id) {
+        for (Province province: this) {
+            if (province.getId() == id) {
+                return province;
+            }
+        }
+        return null;
+    }
 }

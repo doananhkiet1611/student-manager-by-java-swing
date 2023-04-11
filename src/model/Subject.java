@@ -57,6 +57,5 @@ public class Subject implements Serializable {
         }
         final Subject other = (Subject) obj;
         return this.id == other.id;
-    }
-    
+    } 
 }

@@ -15,26 +15,31 @@ import model.Student;
 import model.list.Students;
 
 public class StudentStore {
-    public static void saveStudentToFile(Students students, String fileName) throws IOException {
+
+    public static void saveToFile(Students students, String fileName) throws IOException {
         File file = FileGenegator.creatNewFile(fileName);
 
         FileOutputStream fos = new FileOutputStream(file);
         ObjectOutputStream oos = new ObjectOutputStream(fos);
 
         for (Student student : students) {
-            oos.writeObject(student);
+            oos.writeObject(student.getId());
+            oos.writeObject(student.getFullName());
             oos.writeObject(student.getDateOfBirth());
+            oos.writeObject(student.getGender());
+            oos.writeObject(student.getPhoneNumber());
             oos.writeObject(student.getPlaceOfOrigin());
             oos.writeObject(student.getMajor());
             oos.writeObject(student.getClassroom());
         }
+        oos.writeObject(Student.getsID());
 
         oos.flush();
         oos.close();
         fos.close();
     }
 
-    public static Students loadStudentFromFile(String fileName) throws IOException, ClassNotFoundException {
+    public static Students loadFromFile(String fileName) throws IOException, ClassNotFoundException {
         Students students = new Students();
         if (fileName == null || fileName.isEmpty()) {
             return students;
@@ -43,29 +48,32 @@ public class StudentStore {
         File file = new File(fileName);
         FileInputStream fis = new FileInputStream(file);
         ObjectInputStream ois = new ObjectInputStream(fis);
-        
+
         while (true) {
+            int id = 1;
             try {
-                Student student = (Student) ois.readObject();
+                id = (Integer) ois.readObject();
+                String fullName = (String) ois.readObject();
                 Date dateOfBirth = (Date) ois.readObject();
+                String gender = (String) ois.readObject();
+                String phoneNumber = (String) ois.readObject();
                 Province placeOfOrigin = (Province) ois.readObject();
                 Major major = (Major) ois.readObject();
                 Classroom classroom = (Classroom) ois.readObject();
-
-                student.setDateOfBirth(dateOfBirth);
-                student.setPlaceOfOrigin(placeOfOrigin);
-                student.setMajor(major);
-                student.setClassroom(classroom);
+                
+                Student student = new Student(id, fullName, dateOfBirth, gender, phoneNumber, placeOfOrigin, major, classroom);
                 students.add(student);
             } catch (EOFException eof) {
+                Student.setsID(id);
                 break;
+            } finally {
+                
             }
         }
         
         ois.close();
         fis.close();
-        int lastID = students.get(students.size() - 1).getId();
-        Student.setsID(lastID + 1);
+        
         return students;
     }
 }

@@ -43,15 +43,17 @@ public class AdminHomeView extends javax.swing.JFrame {
         cbSortByOfProvince.addItem("Name: Descending");
         cbSortByOfProvince.setSelectedIndex(0);
         
+        cbSortByOfMajor.addItem("");
+        cbSortByOfMajor.addItem("Name: Ascending");
+        cbSortByOfMajor.addItem("Name: Descending");
+        cbSortByOfMajor.setSelectedIndex(0);
+        
+        cbSortByOfStudent.addItem("");
+        cbSortByOfStudent.addItem("Name: Ascending");
+        cbSortByOfStudent.addItem("Name: Descending");
+        cbSortByOfStudent.setSelectedIndex(0);
+        
         addActionListenerToButtonsOfSubject(actionListener);
-    }
-
-    public JTable getStudentTable() {
-        return studentTable;
-    }
-
-    public JButton getBtnInsertStudent() {
-        return btnInsertStudent;
     }
 
     public JButton getBtnDeleteSubject() {
@@ -75,6 +77,10 @@ public class AdminHomeView extends javax.swing.JFrame {
     }
 
     public JTextField getISubjectFilter() {
+        return iSubjectFilter;
+    }
+
+    public JTextField getiSubjectFilter() {
         return iSubjectFilter;
     }
 
@@ -142,6 +148,63 @@ public class AdminHomeView extends javax.swing.JFrame {
         return provinceTable;
     }
 
+    public JButton getBtnDeleteStudent() {
+        return btnDeleteStudent;
+    }
+
+    public JButton getBtnInsertStudent() {
+        return btnInsertStudent;
+    }
+
+    public JButton getBtnStudentFilter() {
+        return btnStudentFilter;
+    }
+
+    public JButton getBtnUpdateStudent() {
+        return btnUpdateStudent;
+    }
+
+    public JComboBox<String> getCbSortByOfStudent() {
+        return cbSortByOfStudent;
+    }
+
+    public JTextField getiStudentFilter() {
+        return iStudentFilter;
+    }
+
+    public JTable getStudentTable() {
+        return studentTable;
+    }
+
+    public JButton getBtnDeleteMajor() {
+        return btnDeleteMajor;
+    }
+
+    public JButton getBtnInsertMajor() {
+        return btnInsertMajor;
+    }
+
+    public JButton getBtnMajorFilter() {
+        return btnMajorFilter;
+    }
+
+    public JComboBox<String> getCbSortByOfMajor() {
+        return cbSortByOfMajor;
+    }
+
+    public JTextField getiMajorFilter() {
+        return iMajorFilter;
+    }
+
+    public JTable getMajorTable() {
+        return majorTable;
+    }
+
+    public JButton getBtnUpdateMajor() {
+        return btnUpdateMajor;
+    }
+    
+
     public void addActionListenerToButtonsOfSubject(ActionListener actionListener){
         btnInsertSubject.addActionListener(actionListener);
         btnDeleteSubject.addActionListener(actionListener);
@@ -160,6 +223,18 @@ public class AdminHomeView extends javax.swing.JFrame {
         btnUpdateProvince.addActionListener(actionListener);
         btnProvinceFilter.addActionListener(actionListener);
         cbSortByOfProvince.addActionListener(actionListener);
+
+        btnInsertMajor.addActionListener(actionListener);
+        btnDeleteMajor.addActionListener(actionListener);
+        btnUpdateMajor.addActionListener(actionListener);
+        btnMajorFilter.addActionListener(actionListener);
+        cbSortByOfMajor.addActionListener(actionListener);
+        
+        btnInsertStudent.addActionListener(actionListener);
+        btnDeleteStudent.addActionListener(actionListener);
+        btnUpdateStudent.addActionListener(actionListener);
+        btnStudentFilter.addActionListener(actionListener);
+        cbSortByOfStudent.addActionListener(actionListener);
     }
     
     public void addItemListenerToComboBoxOfSubject(ItemListener itemListener) {
@@ -180,12 +255,12 @@ public class AdminHomeView extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         studentTable = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        iStudentFilter = new javax.swing.JTextField();
+        btnStudentFilter = new javax.swing.JButton();
+        cbSortByOfStudent = new javax.swing.JComboBox<>();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        btnDeleteStudent = new javax.swing.JButton();
+        btnUpdateStudent = new javax.swing.JButton();
         btnInsertStudent = new javax.swing.JButton();
         subjectTab = new javax.swing.JPanel();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -220,6 +295,17 @@ public class AdminHomeView extends javax.swing.JFrame {
         btnDeleteProvince = new javax.swing.JButton();
         btnUpdateProvince = new javax.swing.JButton();
         btnInsertProvince = new javax.swing.JButton();
+        majorTab = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        majorTable = new javax.swing.JTable();
+        jLabel9 = new javax.swing.JLabel();
+        iMajorFilter = new javax.swing.JTextField();
+        btnMajorFilter = new javax.swing.JButton();
+        cbSortByOfMajor = new javax.swing.JComboBox<>();
+        jLabel10 = new javax.swing.JLabel();
+        btnDeleteMajor = new javax.swing.JButton();
+        btnUpdateMajor = new javax.swing.JButton();
+        btnInsertMajor = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
@@ -261,40 +347,39 @@ public class AdminHomeView extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel1.setText("Full Name");
 
-        jTextField1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        iStudentFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        iStudentFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                iStudentFilterActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton2.setText("Filter");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        btnStudentFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnStudentFilter.setText("Filter");
+        btnStudentFilter.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                btnStudentFilterActionPerformed(evt);
             }
         });
 
-        jComboBox1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "...", "Full name A -> Z", "Full name Z -> A" }));
+        cbSortByOfStudent.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel2.setText("Sort By");
 
-        jButton1.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton1.setText("DELETE");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnDeleteStudent.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDeleteStudent.setText("DELETE");
+        btnDeleteStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnDeleteStudentActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        jButton3.setText("UPDATE");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        btnUpdateStudent.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnUpdateStudent.setText("UPDATE");
+        btnUpdateStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                btnUpdateStudentActionPerformed(evt);
             }
         });
 
@@ -314,21 +399,21 @@ public class AdminHomeView extends javax.swing.JFrame {
                         .addGap(10, 10, 10)
                         .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(iStudentFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnStudentFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 441, Short.MAX_VALUE)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(cbSortByOfStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
             .addGroup(studentTabLayout.createSequentialGroup()
                 .addContainerGap(288, Short.MAX_VALUE)
                 .addComponent(btnInsertStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnDeleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(64, 64, 64)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnUpdateStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(286, Short.MAX_VALUE))
         );
         studentTabLayout.setVerticalGroup(
@@ -338,18 +423,18 @@ public class AdminHomeView extends javax.swing.JFrame {
                 .addGroup(studentTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(studentTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jComboBox1)
+                        .addComponent(cbSortByOfStudent)
                         .addComponent(jLabel2))
                     .addGroup(studentTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jButton2)))
+                        .addComponent(iStudentFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnStudentFilter)))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(studentTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdateStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnInsertStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnDeleteStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -718,6 +803,127 @@ public class AdminHomeView extends javax.swing.JFrame {
 
         jTabbedPane.addTab("Province", provinceTab);
 
+        majorTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Name"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        majorTable.getTableHeader().setReorderingAllowed(false);
+        jScrollPane5.setViewportView(majorTable);
+        if (majorTable.getColumnModel().getColumnCount() > 0) {
+            majorTable.getColumnModel().getColumn(0).setMinWidth(20);
+            majorTable.getColumnModel().getColumn(0).setPreferredWidth(80);
+            majorTable.getColumnModel().getColumn(1).setPreferredWidth(400);
+        }
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel9.setText("Major name");
+
+        iMajorFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        iMajorFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                iMajorFilterActionPerformed(evt);
+            }
+        });
+
+        btnMajorFilter.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnMajorFilter.setText("Filter");
+        btnMajorFilter.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMajorFilterActionPerformed(evt);
+            }
+        });
+
+        cbSortByOfMajor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        jLabel10.setText("Sort By");
+
+        btnDeleteMajor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnDeleteMajor.setText("DELETE");
+        btnDeleteMajor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteMajorActionPerformed(evt);
+            }
+        });
+
+        btnUpdateMajor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnUpdateMajor.setText("UPDATE");
+        btnUpdateMajor.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateMajorActionPerformed(evt);
+            }
+        });
+
+        btnInsertMajor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnInsertMajor.setText("INSERT");
+
+        javax.swing.GroupLayout majorTabLayout = new javax.swing.GroupLayout(majorTab);
+        majorTab.setLayout(majorTabLayout);
+        majorTabLayout.setHorizontalGroup(
+            majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(majorTabLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(majorTabLayout.createSequentialGroup()
+                        .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(iMajorFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMajorFilter, javax.swing.GroupLayout.PREFERRED_SIZE, 84, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 416, Short.MAX_VALUE)
+                        .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbSortByOfMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(majorTabLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnInsertMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnDeleteMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(64, 64, 64)
+                        .addComponent(btnUpdateMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(majorTabLayout.createSequentialGroup()
+                .addGap(303, 303, 303)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        majorTabLayout.setVerticalGroup(
+            majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(majorTabLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addGroup(majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(cbSortByOfMajor)
+                        .addComponent(jLabel10))
+                    .addGroup(majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(iMajorFilter, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnMajorFilter)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 444, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(majorTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnUpdateMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnInsertMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDeleteMajor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+
+        jTabbedPane.addTab("Major", majorTab);
+
         getContentPane().add(jTabbedPane, java.awt.BorderLayout.CENTER);
 
         jMenu1.setText("File");
@@ -732,21 +938,21 @@ public class AdminHomeView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void btnStudentFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentFilterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_btnStudentFilterActionPerformed
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+    private void iStudentFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iStudentFilterActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField1ActionPerformed
+    }//GEN-LAST:event_iStudentFilterActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnDeleteStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteStudentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnDeleteStudentActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void btnUpdateStudentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateStudentActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_btnUpdateStudentActionPerformed
 
     private void iSubjectFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iSubjectFilterActionPerformed
         // TODO add your handling code here:
@@ -796,34 +1002,58 @@ public class AdminHomeView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnUpdateProvinceActionPerformed
 
+    private void iMajorFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_iMajorFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_iMajorFilterActionPerformed
+
+    private void btnMajorFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMajorFilterActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnMajorFilterActionPerformed
+
+    private void btnDeleteMajorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteMajorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnDeleteMajorActionPerformed
+
+    private void btnUpdateMajorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateMajorActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnUpdateMajorActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnClassroomFilter;
     private javax.swing.JButton btnDeleteClassroom;
+    private javax.swing.JButton btnDeleteMajor;
     private javax.swing.JButton btnDeleteProvince;
+    private javax.swing.JButton btnDeleteStudent;
     private javax.swing.JButton btnDeleteSubject;
     private javax.swing.JButton btnInsertClassroom;
+    private javax.swing.JButton btnInsertMajor;
     private javax.swing.JButton btnInsertProvince;
     private javax.swing.JButton btnInsertStudent;
     private javax.swing.JButton btnInsertSubject;
+    private javax.swing.JButton btnMajorFilter;
     private javax.swing.JButton btnProvinceFilter;
+    private javax.swing.JButton btnStudentFilter;
     private javax.swing.JButton btnSubjectFilter;
     private javax.swing.JButton btnUpdateClassroom;
+    private javax.swing.JButton btnUpdateMajor;
     private javax.swing.JButton btnUpdateProvince;
+    private javax.swing.JButton btnUpdateStudent;
     private javax.swing.JButton btnUpdateSubject;
     private javax.swing.JComboBox<String> cbSortByOfClassroom;
+    private javax.swing.JComboBox<String> cbSortByOfMajor;
     private javax.swing.JComboBox<String> cbSortByOfProvince;
+    private javax.swing.JComboBox<String> cbSortByOfStudent;
     private javax.swing.JComboBox<String> cbSortByOfSubject;
     private javax.swing.JPanel classroomTab;
     private javax.swing.JTable classroomTable;
     private javax.swing.JTextField iClassroomFilter;
+    private javax.swing.JTextField iMajorFilter;
     private javax.swing.JTextField iProvinceFilter;
+    private javax.swing.JTextField iStudentFilter;
     private javax.swing.JTextField iSubjectFilter;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -831,6 +1061,7 @@ public class AdminHomeView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
@@ -838,8 +1069,10 @@ public class AdminHomeView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTabbedPane jTabbedPane;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JPanel majorTab;
+    private javax.swing.JTable majorTable;
     private javax.swing.JPanel provinceTab;
     private javax.swing.JTable provinceTable;
     private javax.swing.JPanel studentTab;

@@ -10,37 +10,36 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JTextField;
+import model.Classroom;
+import model.Major;
+import model.Province;
+import model.list.Classrooms;
+import model.list.Majors;
+import model.list.Provinces;
 
 /**
  *
  * @author doananhkiet
  */
-public class InsertStudentView extends javax.swing.JDialog {
+public class StudentView extends javax.swing.JDialog {
 
     /**
      * Creates new form AddStudentForm
      */
     
-    public InsertStudentView(java.awt.Frame parent, boolean modal) {
+    public StudentView(java.awt.Frame parent, boolean modal, ActionListener actionListener) {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(null);
+        addActionListenerToButtons(actionListener);
     }
     
     public void addActionListenerToButtons(ActionListener actionListener) {
-        btnInsert.addActionListener(actionListener);
+        btnAccept.addActionListener(actionListener);
         btnCancel.addActionListener(actionListener);
     }
 
-    public JButton getBtnCancel() {
-        return btnCancel;
-    }
-
-    public JButton getBtnInsert() {
-        return btnInsert;
-    }
-
-    public ButtonGroup getBtnGroupGender() {
+    public ButtonGroup getGroupGender() {
         return btnGroupGender;
     }
 
@@ -64,8 +63,8 @@ public class InsertStudentView extends javax.swing.JDialog {
         return iFullname;
     }
 
-    public JTextField getoID() {
-        return oID;
+    public JTextField getiPhoneNumber() {
+        return iPhoneNumber;
     }
 
     public JRadioButton getRdoFemale() {
@@ -76,8 +75,38 @@ public class InsertStudentView extends javax.swing.JDialog {
         return rdoMale;
     }
 
-    public JTextField getiPhoneNumber() {
-        return iPhoneNumber;
+    public JTextField getiID() {
+        return iID;
+    }
+
+    public JButton getBtnAccept() {
+        return btnAccept;
+    }
+    
+    public JButton getBtnCancel() {
+        return btnCancel;
+    }
+
+    public ButtonGroup getBtnGroupGender() {
+        return btnGroupGender;
+    }
+  
+    public void addListItemIntoCbPlaceOfOrgin(Provinces provinces) {
+        for(Province province: provinces) {
+            getCbPlaceOfOrigin().addItem(province.getId() + ": " + province.getName());
+        }
+    }
+    
+    public void addListItemIntoCbMajor(Majors majors) {
+        for(Major major: majors) {
+            getCbMajor().addItem(major.getId() + ": " + major.getName());
+        }
+    }
+    
+    public void addListItemIntoCbClass(Classrooms classrooms) {
+        for(Classroom classroom: classrooms) {
+            getCbClass().addItem(classroom.getId() + ": " + classroom.getName());
+        }
     }
     
     public void reset() {
@@ -107,7 +136,7 @@ public class InsertStudentView extends javax.swing.JDialog {
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
-        oID = new javax.swing.JTextField();
+        iID = new javax.swing.JTextField();
         iFullname = new javax.swing.JTextField();
         iDateOfBirth = new javax.swing.JTextField();
         rdoMale = new javax.swing.JRadioButton();
@@ -117,7 +146,7 @@ public class InsertStudentView extends javax.swing.JDialog {
         cbMajor = new javax.swing.JComboBox<>();
         cbClass = new javax.swing.JComboBox<>();
         btnCancel = new javax.swing.JButton();
-        btnInsert = new javax.swing.JButton();
+        btnAccept = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         iPhoneNumber = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
@@ -142,8 +171,8 @@ public class InsertStudentView extends javax.swing.JDialog {
         jLabel7.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel7.setText("Major");
 
-        oID.setEditable(false);
-        oID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        iID.setEditable(false);
+        iID.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
 
         iFullname.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         iFullname.setDragEnabled(true);
@@ -163,19 +192,16 @@ public class InsertStudentView extends javax.swing.JDialog {
         jLabel8.setText("Class");
 
         cbPlaceOfOrigin.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbPlaceOfOrigin.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Bình Phước", "TP. Hồ Chí Minh" }));
 
         cbMajor.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbMajor.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Công nghệ thông tin", "An toàn thông tin", "Dinh dưỡng" }));
 
         cbClass.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        cbClass.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "CT06N", "AT18N", "DHD2022" }));
 
         btnCancel.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         btnCancel.setText("Cancel");
 
-        btnInsert.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
-        btnInsert.setText("Insert");
+        btnAccept.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        btnAccept.setText("Insert");
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Phone Number");
@@ -192,12 +218,12 @@ public class InsertStudentView extends javax.swing.JDialog {
                     .addGroup(formLayout.createSequentialGroup()
                         .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(50, 50, 50)
-                        .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
                             .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
-                            .addComponent(oID))
+                            .addComponent(iID))
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, formLayout.createSequentialGroup()
                             .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(18, 18, 18)
@@ -238,7 +264,7 @@ public class InsertStudentView extends javax.swing.JDialog {
                     .addGroup(formLayout.createSequentialGroup()
                         .addGap(3, 3, 3)
                         .addComponent(jLabel2))
-                    .addComponent(oID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(iID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(formLayout.createSequentialGroup()
@@ -279,7 +305,7 @@ public class InsertStudentView extends javax.swing.JDialog {
                 .addGap(39, 39, 39)
                 .addGroup(formLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnInsert, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(btnAccept, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
 
@@ -312,15 +338,16 @@ public class InsertStudentView extends javax.swing.JDialog {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAccept;
     private javax.swing.JButton btnCancel;
     private javax.swing.ButtonGroup btnGroupGender;
-    private javax.swing.JButton btnInsert;
     private javax.swing.JComboBox<String> cbClass;
     private javax.swing.JComboBox<String> cbMajor;
     private javax.swing.JComboBox<String> cbPlaceOfOrigin;
     private javax.swing.JPanel form;
     private javax.swing.JTextField iDateOfBirth;
     private javax.swing.JTextField iFullname;
+    private javax.swing.JTextField iID;
     private javax.swing.JTextField iPhoneNumber;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel2;
@@ -331,7 +358,6 @@ public class InsertStudentView extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JTextField oID;
     private javax.swing.JRadioButton rdoFemale;
     private javax.swing.JRadioButton rdoMale;
     // End of variables declaration//GEN-END:variables

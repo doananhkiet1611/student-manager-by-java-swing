@@ -6,16 +6,17 @@ import java.util.Date;
 
 public class Student extends Person implements Serializable {
     private static int sID = 1;
+
     private Major major;
     private Classroom classroom;
-    private Results results;
+//    private Results results;
     
     public Student() {
         super();
         this.id = sID++;
     }
     
-    public Student(String fullName, Date dateOfBirth, String gender, String phoneNumber, Province placeOfOrigin, Major major,Classroom classroom) {
+    public Student(String fullName, Date dateOfBirth, String gender, String phoneNumber, Province placeOfOrigin, Major major, Classroom classroom) {
         super(fullName, dateOfBirth, gender, phoneNumber, placeOfOrigin);
         this.major = major;
         this.classroom = classroom;
@@ -28,6 +29,14 @@ public class Student extends Person implements Serializable {
         this.classroom = classroom;
     }
 
+    public static int getsID() {
+        return sID;
+    }
+
+    public static void setsID(int sID) {
+        Student.sID = sID;
+    }
+
     public Major getMajor() {
         return major;
     }
@@ -35,28 +44,12 @@ public class Student extends Person implements Serializable {
     public void setMajor(Major major) {
         this.major = major;
     }
-    
+
     public Classroom getClassroom() {
         return classroom;
     }
 
     public void setClassroom(Classroom classroom) {
         this.classroom = classroom;
-    }
-
-    public Results getResults() {
-        return results;
-    }
-
-    public void setResults(Results results) {
-        this.results = results;
-    }
-
-    public static int getsID() {
-        return sID;
-    }
-
-    public static void setsID(int sID) {
-        Student.sID = sID;
     }
 }
