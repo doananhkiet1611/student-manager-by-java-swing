@@ -13,6 +13,7 @@ import java.util.Vector;
 import javax.swing.AbstractButton;
 import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
+import javax.swing.RowFilter;
 import javax.swing.table.DefaultTableModel;
 import model.Classroom;
 import model.Major;
@@ -1462,7 +1463,7 @@ public class AdminController implements ActionListener {
                 }
 
                 provinceView.reset();
-                provinceView.getiID().setText(Classroom.getsID() + "");
+                provinceView.getiID().setText(Province.getsID() + "");
 
                 try {
                     ProvinceStore.saveToFile(provinces, FileName.province);
@@ -1811,7 +1812,15 @@ public class AdminController implements ActionListener {
 
                 // update row of classroom table
                 DefaultTableModel tableModel = (DefaultTableModel) homeView.getStudentTable().getModel();
+                int numberRow = tableModel.getRowCount();
+                
                 Object[] row = new Object[9];
+                if (numberRow < 1) {
+                   row[0] = 1;
+                } else {
+                   int lastNo = Integer.parseInt(tableModel.getValueAt(numberRow - 1, 0).toString());
+                   row[0] = lastNo + 1;
+                }
                 row[1] = newStudent.getId();
                 row[2] = newStudent.getFullName();
                 row[3] = getFormarteDate(newStudent.getDateOfBirth());
